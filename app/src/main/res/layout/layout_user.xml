@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/user_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/user_size"
+        app:icon="@drawable/baseline_avatar_circle_filled_24"
+        app:iconTint="@android:color/transparent"
+        app:iconTintMode="add"
+        app:iconSize="@dimen/avatar_size"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/purple_500"
+        android:textAllCaps="false"
+        tools:text="Username"
+        android:ellipsize="end"
+        android:checkable="true"
+        style="@style/Widget.AppTheme.UserCheckBox"
+    />
+
+
+</LinearLayout>

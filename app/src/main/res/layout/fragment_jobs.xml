@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/job_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_panel"
+        tools:listitem="@layout/layout_job"/>
+
+    <LinearLayout
+        android:id="@+id/button_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/job_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/feed_button"
+            style="@style/Widget.AppTheme.GrayButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/feed_wall"
+            android:padding="@dimen/margin_small"
+            app:icon="@drawable/baseline_feed_28" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/event_wall_button"
+            style="@style/Widget.AppTheme.GrayButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/event_wall"
+            android:padding="@dimen/margin_small"
+            app:icon="@drawable/baseline_event_wall_28" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:background="@color/dark_grey"
+        app:layout_constraintBottom_toTopOf="@id/button_panel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/jobs_empty"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_job_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:visibility="gone"
+        android:contentDescription="@string/add_post"
+        android:src="@drawable/baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/add_job_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/border"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/job_name"
+            android:layout_width="@dimen/text_width"
+            android:layout_height="wrap_content"
+            android:hint="@string/job_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            tools:text = "Job name"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/job_position"
+            android:layout_width="@dimen/text_width"
+            android:layout_height="wrap_content"
+            android:hint="@string/job_position"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            tools:text = "Job position"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/job_start_date"
+            android:layout_width="@dimen/text_width"
+            android:layout_height="wrap_content"
+            android:text="@string/job_start_date"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:gravity="start"
+            android:backgroundTint="@color/light_grey"
+            android:textColor="@color/black"
+            style="@style/Widget.Material3.Button.TextButton"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/job_finish_date"
+            android:layout_width="@dimen/text_width"
+            android:layout_height="wrap_content"
+            android:text="@string/job_finish_date"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:gravity="start"
+            android:backgroundTint="@color/light_grey"
+            android:textColor="@color/black"
+            style="@style/Widget.Material3.Button.TextButton"
+            />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/job_link"
+            android:layout_width="@dimen/text_width"
+            android:layout_height="wrap_content"
+            android:hint="@string/job_link_optional"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            tools:text = "Job link"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/send_job_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_job"
+            />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

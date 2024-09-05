@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_marginVertical="@dimen/margin_small"
+        android:layout_marginHorizontal="@dimen/margin_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        tools:text = "Job title"
+        android:ellipsize="end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        />
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_marginVertical="@dimen/margin_small"
+        android:layout_marginHorizontal="@dimen/margin_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text = "Job position"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        />
+    
+    <TextView
+        android:id="@+id/from_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/from_job"
+        app:layout_constraintTop_toBottomOf="@id/position"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/margin_default"
+        android:layout_marginVertical="@dimen/margin_small"/>
+    
+    <TextView
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="12.34.1234"
+        android:layout_marginHorizontal="@dimen/margin_default"
+        app:layout_constraintStart_toEndOf="@id/from_label"
+        app:layout_constraintTop_toTopOf="@id/from_label"
+        app:layout_constraintBottom_toBottomOf="@id/from_label"/>
+
+    <TextView
+        android:id="@+id/to_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/to_job"
+        app:layout_constraintTop_toBottomOf="@id/from_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/margin_default"
+        android:layout_marginVertical="@dimen/margin_small"/>
+
+    <TextView
+        android:id="@+id/finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="13.34.1234"
+        android:layout_marginHorizontal="@dimen/margin_default"
+        app:layout_constraintStart_toEndOf="@id/to_label"
+        app:layout_constraintTop_toTopOf="@id/to_label"
+        app:layout_constraintBottom_toBottomOf="@id/to_label"/>
+
+    <TextView
+        android:id="@+id/link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:linksClickable="true"
+        android:layout_marginVertical="@dimen/margin_small"
+        android:layout_marginHorizontal="@dimen/margin_default"
+        android:textStyle="italic"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/to_label"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="link" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/menu"
+        style="@style/Widget.AppTheme.GrayButtons"
+        android:layout_width="@dimen/picture_size"
+        android:layout_height="@dimen/picture_size"
+        android:layout_marginTop="@dimen/margin_small"
+        android:contentDescription="@string/description_post_menu"
+        app:icon="@drawable/ic_baseline_more_vert_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="position"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintTop_toBottomOf="@id/link"
+        android:background="@color/dark_grey"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

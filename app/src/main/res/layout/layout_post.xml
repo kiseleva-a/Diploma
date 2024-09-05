@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/barrier_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:background="@color/light_grey"
+        app:layout_constraintBottom_toTopOf="@id/like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/attachment_picture" />
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="@dimen/avatar_size"
+        android:layout_height="@dimen/avatar_size"
+        android:layout_margin="@dimen/margin_default"
+        android:contentDescription="@string/description_post_author_avatar"
+        android:src="@drawable/baseline_person_24"
+        app:layout_constraintBottom_toTopOf="@id/barrier_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_default"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/published"
+        app:layout_constraintEnd_toStartOf="@id/menu"
+        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintTop_toTopOf="@id/avatar"
+        tools:text="Author" />
+
+    <TextView
+        android:id="@+id/published"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_default"
+        app:layout_constraintTop_toTopOf="@id/job"
+        app:layout_constraintBottom_toBottomOf="@id/job"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="some time" />
+
+    <TextView
+        android:id="@+id/job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:layout_marginStart="@dimen/margin_default"
+        app:layout_constraintBottom_toBottomOf="@id/avatar"
+        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintTop_toBottomOf="@id/author"
+        tools:text="Job title" />
+
+    <View
+        android:id="@+id/barrier_top"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:background="@color/light_grey"
+        app:layout_constraintBottom_toTopOf="@id/content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+    <ImageView
+        android:id="@+id/not_on_server"
+        android:layout_width="@dimen/picture_size"
+        android:layout_height="@dimen/picture_size"
+        android:contentDescription="@string/not_on_server_yet"
+        android:src="@drawable/ic_baseline_error_outline_48"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier_bottom" />
+
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:padding="@dimen/margin_default"
+        app:layout_constraintTop_toTopOf="@id/barrier_top"
+        tools:text="Some text here" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/supplementary_part"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/attachment_picture">
+
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:linksClickable="true"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:padding="@dimen/margin_default"
+            android:textStyle="italic"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/coordinates"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/play_attachment"
+            tools:text="link" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/coordinates"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_small"
+            android:textStyle="bold"
+            android:visibility="gone"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:backgroundTint="@color/light_grey"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/link"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/play_attachment"
+            tools:text="12.23123321 | 23.323124" />
+
+        <ImageButton
+            android:id="@+id/play_attachment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/play_attachment"
+            android:src="@drawable/baseline_video_48"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/attachment_picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/attached_content"
+        android:src="@drawable/ic_baseline_downloading_48"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/barrier_bottom"
+        app:layout_constraintTop_toBottomOf="@id/supplementary_part" />
+
+    <TextView
+        android:id="@+id/like_batch_trail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/etc"
+        app:layout_constraintBottom_toBottomOf="@id/like_avatars3"
+        app:layout_constraintEnd_toStartOf="@id/mention"
+        app:layout_constraintStart_toEndOf="@id/like_avatars3"
+        app:layout_constraintTop_toTopOf="@id/like_avatars3" />
+
+    <TextView
+        android:id="@+id/mention_batch_trail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/etc"
+        app:layout_constraintBottom_toBottomOf="@id/mention_avatars3"
+        app:layout_constraintStart_toEndOf="@id/mention_avatars3"
+        app:layout_constraintTop_toTopOf="@id/mention_avatars3" />
+
+    <ImageView
+        android:id="@+id/like_avatars3"
+        android:layout_width="@dimen/picture_size"
+        android:layout_height="@dimen/picture_size"
+        android:layout_marginStart="@dimen/margin_default"
+        android:src="@drawable/baseline_avatar_circle_filled_24"
+        app:layout_constraintBottom_toBottomOf="@id/like_avatars2"
+        app:layout_constraintEnd_toEndOf="@id/like_avatars2"
+        app:layout_constraintStart_toStartOf="@id/like_avatars2"
+        app:layout_constraintTop_toTopOf="@id/like_avatars2" />
+
+    <ImageView
+        android:id="@+id/like_avatars2"
+        android:layout_width="@dimen/picture_size"
+        android:layout_height="@dimen/picture_size"
+        android:layout_marginStart="@dimen/margin_default"
+        android:src="@drawable/baseline_avatar_circle_filled_24"
+        app:layout_constraintBottom_toBottomOf="@id/like_avatars1"
+        app:layout_constraintEnd_toEndOf="@id/like_avatars1"
+        app:layout_constraintStart_toStartOf="@id/like_avatars1"
+        app:layout_constraintTop_toTopOf="@id/like_avatars1" />
+
+    <ImageView
+        android:id="@+id/like_avatars1"
+        android:layout_width="@dimen/picture_size"
+        android:layout_height="@dimen/picture_size"
+        android:src="@drawable/baseline_avatar_circle_filled_24"
+        app:layout_constraintBottom_toBottomOf="@id/like"
+        app:layout_constraintStart_toEndOf="@id/like"
+        app:layout_constraintTop_toTopOf="@id/like" />
+
+    <ImageView
+        android:id="@+id/mention_avatars3"
+        android:layout_width="@dimen/picture_size"
+        android:layout_height="@dimen/picture_size"
+        android:layout_marginStart="@dimen/margin_default"
+        android:src="@drawable/baseline_avatar_circle_filled_24"
+        app:layout_constraintBottom_toBottomOf="@id/mention_avatars2"
+        app:layout_constraintEnd_toEndOf="@id/mention_avatars2"
+        app:layout_constraintStart_toStartOf="@id/mention_avatars2"
+        app:layout_constraintTop_toTopOf="@id/mention_avatars2" />
+
+    <ImageView
+        android:id="@+id/mention_avatars2"
+        android:layout_width="@dimen/picture_size"
+        android:layout_height="@dimen/picture_size"
+        android:layout_marginStart="@dimen/margin_default"
+        android:src="@drawable/baseline_avatar_circle_filled_24"
+        app:layout_constraintBottom_toBottomOf="@id/mention_avatars1"
+        app:layout_constraintEnd_toEndOf="@id/mention_avatars1"
+        app:layout_constraintStart_toStartOf="@id/mention_avatars1"
+        app:layout_constraintTop_toTopOf="@id/mention_avatars1" />
+
+    <ImageView
+        android:id="@+id/mention_avatars1"
+        android:layout_width="@dimen/picture_size"
+        android:layout_height="@dimen/picture_size"
+        android:src="@drawable/baseline_avatar_circle_filled_24"
+        app:layout_constraintBottom_toBottomOf="@id/mention"
+        app:layout_constraintStart_toEndOf="@id/mention"
+        app:layout_constraintTop_toTopOf="@id/mention" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/bottom_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="like, mention" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/menu"
+        style="@style/Widget.AppTheme.GrayButtons"
+        android:layout_width="@dimen/picture_size"
+        android:layout_height="@dimen/picture_size"
+        android:layout_marginTop="@dimen/margin_default"
+        android:contentDescription="@string/description_post_menu"
+        app:icon="@drawable/ic_baseline_more_vert_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/like"
+        style="@style/Widget.AppTheme.LikeCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/picture_size"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:checkable="true"
+        android:contentDescription="@string/description_post_likes"
+        app:icon="@drawable/ic_like_24dp"
+        app:layout_constraintEnd_toStartOf="@id/like_avatars1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier_bottom"
+        tools:text="5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mention"
+        style="@style/Widget.AppTheme.GrayButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/picture_size"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_small"
+        android:contentDescription="@string/description_post_mentions"
+        app:icon="@drawable/baseline_mentions_24"
+        app:layout_constraintStart_toEndOf="@id/like_batch_trail"
+        app:layout_constraintTop_toBottomOf="@id/barrier_bottom"
+        tools:text="5" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintTop_toBottomOf="@id/like"
+        android:background="@color/dark_grey"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/postFeedFragment">
+
+    <action
+        android:id="@+id/action_global_fragment_sing_in"
+        app:destination="@id/fragment_sing_in" />
+
+    <action
+        android:id="@+id/action_global_signUpFragment"
+        app:destination="@id/signUpFragment" />
+
+    <action
+        android:id="@+id/action_global_jobFragment"
+        app:destination="@id/jobFragment" />
+    <action
+        android:id="@+id/action_global_postFeedFragment"
+        app:destination="@id/postFeedFragment" />
+    <action
+        android:id="@+id/action_global_playFragment"
+        app:destination="@id/playFragment" />
+    <action
+        android:id="@+id/action_global_audioFragment"
+        app:destination="@id/audioFragment" />
+    <action
+        android:id="@+id/action_global_pictureFragment"
+        app:destination="@id/pictureFragment" />
+    <action
+        android:id="@+id/action_global_userWallFragment"
+        app:destination="@id/userWallFragment" />
+    <action
+        android:id="@+id/action_global_newPostFragment"
+        app:destination="@id/newPostFragment" />
+    <action
+        android:id="@+id/action_global_eventFeedFragment"
+        app:destination="@id/eventFeedFragment" />
+    <action
+        android:id="@+id/action_global_mapFragment"
+        app:destination="@id/mapFragment" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="ru.netology.nework.fragment.secondary.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/pictureFragment"
+        android:name="ru.netology.nework.fragment.secondary.PictureFragment"
+        android:label="fragment_picture"
+        tools:layout="@layout/fragment_picture" />
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="ru.netology.nework.fragment.secondary.VideoFragment"
+        android:label="fragment_play"
+        tools:layout="@layout/fragment_video" />
+    <fragment
+        android:id="@+id/audioFragment"
+        android:name="ru.netology.nework.fragment.secondary.AudioFragment"
+        android:label="AudioFragment"
+        tools:layout="@layout/fragment_audio" />
+    <fragment
+        android:id="@+id/postFeedFragment"
+        android:name="ru.netology.nework.fragment.PostFeedFragment"
+        android:label="Hilt_PostFeedFragment"
+        tools:layout="@layout/fragment_posts">
+        <action
+            android:id="@+id/action_postFeedFragment_to_userWallFragment"
+            app:destination="@id/userWallFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_sing_in"
+        android:name="ru.netology.nework.fragment.secondary.SignInFragment"
+        android:label="fragment_sing_in"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_fragment_sing_in_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPostFragment"
+        android:name="ru.netology.nework.fragment.NewPostFragment"
+        android:label="NewPostFragment"
+        tools:layout="@layout/fragment_new_post">
+        <action
+            android:id="@+id/action_newPostFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="ru.netology.nework.fragment.UsersFragment"
+        android:label="UsersFragment"
+        tools:layout="@layout/fragment_users" />
+    <fragment
+        android:id="@+id/jobFragment"
+        android:name="ru.netology.nework.fragment.JobFragment"
+        android:label="JobFragment"
+        tools:layout="@layout/fragment_jobs" />
+    <fragment
+        android:id="@+id/userWallFragment"
+        android:name="ru.netology.nework.fragment.UserWallFragment"
+        android:label="UserWallFragment"
+        tools:layout="@layout/fragment_posts">
+        <action
+            android:id="@+id/action_userWallFragment_self"
+            app:destination="@id/userWallFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventFeedFragment"
+        android:name="ru.netology.nework.fragment.EventFeedFragment"
+        android:label="EventFeedFragment"
+        tools:layout="@layout/fragment_events">
+        <action
+            android:id="@+id/action_eventFeedFragment_to_newEventFragment"
+            app:destination="@id/newEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newEventFragment"
+        android:name="ru.netology.nework.fragment.NewEventFragment"
+        android:label="NewEventFragment"
+        tools:layout="@layout/fragment_new_event">
+        <action
+            android:id="@+id/action_newEventFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="ru.netology.nework.fragment.secondary.MapFragment"
+        android:label="MapFragment"
+        tools:layout="@layout/fragment_map"/>
+
+
+</navigation>
